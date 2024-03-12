@@ -28,21 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listView1 = new ListView();
+            ListViewItem listViewItem7 = new ListViewItem("Monitor CRD");
+            ListViewItem listViewItem8 = new ListViewItem("Monitor LCD/LED");
+            ListViewItem listViewItem9 = new ListViewItem("Monitor OLED");
             label1 = new Label();
             label2 = new Label();
             textBox1 = new TextBox();
             button1 = new Button();
             button2 = new Button();
+            listView1 = new ListView();
             SuspendLayout();
-            // 
-            // listView1
-            // 
-            listView1.Location = new Point(286, 52);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(162, 134);
-            listView1.TabIndex = 0;
-            listView1.UseCompatibleStateImageBehavior = false;
             // 
             // label1
             // 
@@ -61,7 +56,6 @@
             label2.Size = new Size(15, 15);
             label2.TabIndex = 2;
             label2.Text = "zł";
-            label2.Click += label2_Click;
             // 
             // textBox1
             // 
@@ -69,6 +63,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(100, 23);
             textBox1.TabIndex = 3;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // button1
             // 
@@ -78,6 +73,7 @@
             button1.TabIndex = 4;
             button1.Text = "OK";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -87,18 +83,29 @@
             button2.TabIndex = 5;
             button2.Text = "Anuluj";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // listView1
+            // 
+            listView1.Items.AddRange(new ListViewItem[] { listViewItem7, listViewItem8, listViewItem9 });
+            listView1.Location = new Point(303, 79);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(121, 97);
+            listView1.TabIndex = 6;
+            listView1.UseCompatibleStateImageBehavior = false;
+            listView1.SelectedIndexChanged += listView1_SelectedIndexChanged;
             // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(listView1);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(textBox1);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(listView1);
             Name = "Form3";
             Text = "Form3";
             ResumeLayout(false);
@@ -106,12 +113,11 @@
         }
 
         #endregion
-
-        private ListView listView1;
         private Label label1;
         private Label label2;
         private TextBox textBox1;
         private Button button1;
         private Button button2;
+        private ListView listView1;
     }
 }

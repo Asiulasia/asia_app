@@ -33,14 +33,13 @@
             textBox1 = new TextBox();
             textBox2 = new TextBox();
             button2 = new Button();
-            checkedListBox1 = new CheckedListBox();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
-            textBox3 = new TextBox();
-            label5 = new Label();
-            label6 = new Label();
+            radioButton1 = new RadioButton();
+            radioButton2 = new RadioButton();
+            radioButton3 = new RadioButton();
             SuspendLayout();
             // 
             // button1
@@ -51,14 +50,17 @@
             button1.TabIndex = 0;
             button1.Text = "OK";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Intel i3", "Intel i5", "AMD Ryzen 5" });
             comboBox1.Location = new Point(198, 73);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(121, 23);
             comboBox1.TabIndex = 1;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // textBox1
             // 
@@ -66,6 +68,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(100, 23);
             textBox1.TabIndex = 2;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // textBox2
             // 
@@ -73,6 +76,7 @@
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(100, 23);
             textBox2.TabIndex = 3;
+            textBox2.TextChanged += textBox2_TextChanged;
             // 
             // button2
             // 
@@ -82,15 +86,7 @@
             button2.TabIndex = 5;
             button2.Text = "Anuluj";
             button2.UseVisualStyleBackColor = true;
-            // 
-            // checkedListBox1
-            // 
-            checkedListBox1.FormattingEnabled = true;
-            checkedListBox1.Items.AddRange(new object[] { "240 GB SSD", "500 GB SATA", "1000 GB SATA" });
-            checkedListBox1.Location = new Point(199, 176);
-            checkedListBox1.Name = "checkedListBox1";
-            checkedListBox1.Size = new Size(120, 94);
-            checkedListBox1.TabIndex = 6;
+            button2.Click += button2_Click;
             // 
             // label1
             // 
@@ -128,44 +124,54 @@
             label4.TabIndex = 10;
             label4.Text = "zł";
             // 
-            // textBox3
+            // radioButton1
             // 
-            textBox3.Location = new Point(199, 276);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 23);
-            textBox3.TabIndex = 11;
+            radioButton1.AutoSize = true;
+            radioButton1.Location = new Point(198, 177);
+            radioButton1.Name = "radioButton1";
+            radioButton1.Size = new Size(78, 19);
+            radioButton1.TabIndex = 11;
+            radioButton1.TabStop = true;
+            radioButton1.Text = "Dysk HDD";
+            radioButton1.UseVisualStyleBackColor = true;
+            radioButton1.CheckedChanged += radioButton1_CheckedChanged;
             // 
-            // label5
+            // radioButton2
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(144, 279);
-            label5.Name = "label5";
-            label5.Size = new Size(43, 15);
-            label5.TabIndex = 12;
-            label5.Text = "Reszta:";
+            radioButton2.AutoSize = true;
+            radioButton2.Location = new Point(198, 205);
+            radioButton2.Name = "radioButton2";
+            radioButton2.Size = new Size(73, 19);
+            radioButton2.TabIndex = 12;
+            radioButton2.TabStop = true;
+            radioButton2.Text = "Dysk SSD";
+            radioButton2.UseVisualStyleBackColor = true;
+            radioButton2.CheckedChanged += radioButton2_CheckedChanged;
             // 
-            // label6
+            // radioButton3
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(305, 279);
-            label6.Name = "label6";
-            label6.Size = new Size(15, 15);
-            label6.TabIndex = 13;
-            label6.Text = "zł";
+            radioButton3.AutoSize = true;
+            radioButton3.Location = new Point(198, 230);
+            radioButton3.Name = "radioButton3";
+            radioButton3.Size = new Size(82, 19);
+            radioButton3.TabIndex = 13;
+            radioButton3.TabStop = true;
+            radioButton3.Text = "Dysk SSHD";
+            radioButton3.UseVisualStyleBackColor = true;
+            radioButton3.CheckedChanged += radioButton3_CheckedChanged;
             // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(label6);
-            Controls.Add(label5);
-            Controls.Add(textBox3);
+            Controls.Add(radioButton3);
+            Controls.Add(radioButton2);
+            Controls.Add(radioButton1);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(checkedListBox1);
             Controls.Add(button2);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
@@ -184,13 +190,12 @@
         private TextBox textBox1;
         private TextBox textBox2;
         private Button button2;
-        private CheckedListBox checkedListBox1;
         private Label label1;
         private Label label2;
         private Label label3;
         private Label label4;
-        private TextBox textBox3;
-        private Label label5;
-        private Label label6;
+        private RadioButton radioButton1;
+        private RadioButton radioButton2;
+        private RadioButton radioButton3;
     }
 }
